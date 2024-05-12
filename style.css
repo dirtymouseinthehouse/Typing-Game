@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(210deg,#17a2b8,rgb(204, 226, 228));
+    background-repeat: no-repeat;
+}
+.heading{
+    font-family: 'Fredoka One', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: whitesmoke;
+    text-shadow: 2px 2px 8px black;
+    margin: 15px;
+    padding: 31px;
+    padding: 0;
+
+}
+.heading h1{
+    font-size: 255%;
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: 'Josefin Sans', sans-serif; */
+    /* font-weight: 25%; */
+}
+.heading h3{
+    /* font-family: 'Open Sans', sans-serif; */
+    font-size: 95%;
+}
+.container{
+    max-width: 770px;
+    min-height: 110px;
+    font-family: 'Poppins', sans-serif;
+    padding: 35px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.container .inp-field{
+    z-index: -999;
+    opacity: 0;
+    position: absolute;
+}
+.container .context{
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.context .typing-box{
+    max-height: 255px;
+    overflow-y: auto;
+}
+.typing-box::-webkit-scrollbar{
+    width: 0;
+}
+.typing-box p{
+    font-size: 21px;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+.typing-box p span{
+    position: relative;
+}
+.typing-box p span.correct{
+    color:rgb(22, 179, 22);
+} 
+.typing-box p span.incorrect{
+    color:red;
+    background: #ffc0cb;
+    outline: 1px solid #fff;
+    border-radius: 4px;
+}
+.typing-box p span.active{
+    color:#17a2b8;
+}
+.typing-box p span.active::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    background: #17a2b8;
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+    50%{
+        opacity: 1;
+    }
+}
+.context .status{
+    margin-top: 17px;
+    display: flex;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #bfbfbf;
+}
+.status .results{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: calc(100% - 140px);
+    justify-content: space-between;
+}
+.results li{
+    display: flex;
+    height: 20px;
+     list-style: none;
+    position: relative;
+    align-items: center;
+}
+.results li:not(:first-child){
+    padding-left: 22px;
+    border-left: 1px solid #bfbfbf;
+}
+.results li p{
+    font-size: 19px;
+}
+.results li span{
+    display:block;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.results li span b{
+    font-weight: 1200;
+}
+.context button{
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    width: 105px;
+    padding: 8px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #17a2b8;
+    transition: transform 0.3s ease;
+}
+.context button:active{
+    transform: scale(0.97);
+}
+@media screen and (max-width:745px){
+    .container{
+        padding: 20px;
+    }
+    .context .status{
+        padding: 20px;
+    }
+    .context .typing-box{
+        max-height: 100%;
+    }
+    .typing-box p{
+        font-size: 19px;
+        text-align: left;
+    }
+    .context button{
+        width: 100%;
+        font-size: 15px;
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+    .context .results{
+        width: 100%;
+    }
+    .results li:not(:first-child){
+        border: 0;
+        padding: 0;
+    }
+    .results li p,.results li span{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 518px) {
+    .container .context{
+      padding: 10px 15px 0;
+    }
+    .typing-box p{
+      font-size: 18px;
+    }
+    .result li{
+      margin-bottom: 10px;
+    }
+    .context button{
+      margin-top: 10px;
+    }
+}
